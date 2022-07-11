@@ -1,5 +1,5 @@
 const config = {
-    HOST: 'http://192.168.31.67:3000'
+    HOST: 'http://localhost:8080'
 };
 
 export default config;
