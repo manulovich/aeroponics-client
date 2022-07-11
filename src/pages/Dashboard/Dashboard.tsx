@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Device, Experimet, User } from '../../core/interface/User';
 import Header from '../../components/ordinary/Header';
 import Main from '../../components/ordinary/Main';
@@ -6,12 +6,12 @@ import Navbar from '../../components/ordinary/Navbar';
 import { pinBody, unPinBody } from '../../core/utils/dom';
 import { useUserData } from './hooks';
 import { useMenuControl } from '../../components/ordinary/Header/hooks';
-import NewDevice from '../../modal/NewDevice';
-import NewExperiment from '../../modal/NewExperiment';
-import SelectDevice from '../../modal/SelectDevice';
-import SelectExperiment from '../../modal/SelectExperiment';
 import { useAuthContext } from '../../core/provider/AuthProvider';
 import './dashboard.scss';
+import NewDevice from '../../Modal/NewDevice';
+import NewExperiment from '../../Modal/NewExperiment';
+import SelectDevice from '../../Modal/SelectDevice';
+import SelectExperiment from '../../Modal/SelectExperiment';
 
 interface DashboardProps {
     isMobile: boolean;
