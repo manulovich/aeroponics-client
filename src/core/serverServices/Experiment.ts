@@ -13,7 +13,7 @@ class Experiment extends Services {
     async getById(id: string): Promise<ExperimentGetByIdResponse> {
         this.checkAuth();
         return await this.onKnockServer(async () => {
-            return await fetch(`${this.host}/${this.path}/?id=${id}`, {
+            return await fetch(`${this.host}${this.path}/?id=${id}`, {
                 headers: {
                     Authorization: `Bearer ${this.getToken().token}`
                 }
@@ -24,7 +24,7 @@ class Experiment extends Services {
     async getList(deviceName: string): Promise<ExperimentGetListResponse> {
         this.checkAuth();
         return await this.onKnockServer(async () => {
-            return await fetch(`${this.host}/${this.path}/list/?name=${deviceName}`, {
+            return await fetch(`${this.host}${this.path}/list/?name=${deviceName}`, {
                 headers: {
                     Authorization: `Bearer ${this.getToken().token}`
                 }
@@ -35,7 +35,7 @@ class Experiment extends Services {
     async getExcelBuffer(experimentId: string): Promise<ExperimentGetExcelBufferResponse> {
         this.checkAuth();
         return await this.onKnockServer(async () => {
-            return await fetch(`${this.host}/${this.path}/excel-buffer/?id=${experimentId}`, {
+            return await fetch(`${this.host}${this.path}/excel-buffer/?id=${experimentId}`, {
                 headers: {
                     Authorization: `Bearer ${this.getToken().token}`
                 }
