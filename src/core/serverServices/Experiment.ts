@@ -37,7 +37,8 @@ class Experiment extends Services {
         return await this.onKnockServer(async () => {
             return await fetch(`${this.host}${this.path}/excel-buffer/?id=${experimentId}`, {
                 headers: {
-                    Authorization: `Bearer ${this.getToken().token}`
+                    Authorization: `Bearer ${this.getToken().token}`,
+                    'Content-Type': 'application/json;charset=utf-8'
                 }
             });
         });
