@@ -1,9 +1,8 @@
-import { getDateDifference } from '../../../../../core/utils/date';
 import { Measurement } from '../../../../../core/interface/User';
 import { useMeasurementContext } from '../../hooks';
 import IndicatorsRow from './IndicatorsRow';
-import './indicators.scss'
 import CardInfo from '../../../CardInfo';
+import './indicators.scss'
 
 interface IndicatorsProps {
     measurement: Measurement;
@@ -12,10 +11,6 @@ interface IndicatorsProps {
 const Indicators = ({ measurement }: IndicatorsProps) => {
     const { isMobile } = useMeasurementContext();
 
-    const lightOnTime = getDateDifference(
-        new Date(measurement.lightOffTime),
-        new Date(measurement.lightWorkingTime)
-    ).toLocaleDateString();
     const { tempWater, tempRoom } = measurement;
     const error = measurement.danger ? 'Да' : 'Нет';
 
@@ -35,7 +30,7 @@ const Indicators = ({ measurement }: IndicatorsProps) => {
                     </CardInfo.Group>
                     <CardInfo.Group>
                         <CardInfo.Row>
-                            <IndicatorsRow label='Время включения света' value={lightOnTime} />
+                            <IndicatorsRow label='Время включения света' value={measurement.lightWorkingTime} />
                         </CardInfo.Row>
                     </CardInfo.Group>
                     <CardInfo.Group>

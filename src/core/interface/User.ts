@@ -1,12 +1,13 @@
 type StringDate = string;
+type StringTime = string;
 
 interface Measurement {
     danger: boolean,
     tempRoom: number,
     tempWater: number,
     lightSensor: number,
-    lightWorkingTime: number,
-    lightOffTime: StringDate,
+    lightWorkingTime: StringTime,
+    lightOffTime: StringTime,
     pumpTime: number,
     pumpSleep: number,
     date: StringDate
