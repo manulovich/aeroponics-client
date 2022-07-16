@@ -22,7 +22,7 @@ const Report = ({ experiment }: ReportProps) => {
             return;
         }
 
-        download(new Blob([response.excelBuffer]), experiment.title);
+        download(new Blob([response.excelBuffer]), `${experiment.title}.xlsx`);
     }
 
     return (
