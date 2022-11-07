@@ -21,12 +21,11 @@ class Services {
         return new Token(tokenCondidate);
     }
 
-    async onKnockServer(getResponse: () => Promise<any>): Promise<any> {
+    async onKnockServer(getResponse: () => Promise<any>, isParse: boolean = true): Promise<any> {
         try {
-            const response = await getResponse();
-            const serializeResponse = await response.json();
-
-            return serializeResponse;
+            let response = await getResponse();
+                        
+            return isParse ? await response.json() : response;
         } catch (error: any) {
             return new ResponseError(error.message);
         }

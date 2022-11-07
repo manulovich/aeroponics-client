@@ -16,7 +16,6 @@ const Report = ({ experiment }: ReportProps) => {
     const downloadHandler = async () => {
         // download();
         const response: any = await experimentService.getExcelBuffer(experiment._id);
-        const blob = await response.blob();
         
 
         if (response instanceof ResponseError) {
@@ -24,7 +23,7 @@ const Report = ({ experiment }: ReportProps) => {
             return;
         }
 
-        download(blob, `${experiment.title}.xlsx`);
+        download((await response.blob()), `${experiment.title}.xlsx`);
     }
 
     return (
